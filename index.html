@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript">
+			document.documentElement.style.fontSize=innerWidth/15+"px"
+		</script>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/index2.css" />
+		<link rel="stylesheet" href="css/index3.css" />
+		<link rel="stylesheet" href="css/index4.css" />
+		<link rel="stylesheet" href="css/index5.css" />
+		<link rel="stylesheet" href="css/index21.css" />
+		<link rel="stylesheet" href="css/l.css" />
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/angular.js"></script>
+		<script src="js/angular-ui-router.js"></script>
+	</head>
+	<body>
+		<div class="y1" id="y1">
+			<img src="img/1.png" class="iy1"/>
+			<div class="y11">下载酷狗</div>
+			<a href="#!/l"><div class="iy2">登录/注册</div></a>
+			<a href=""><div class="iy3"><img src="img/3.png"/></div></a>
+		</div>
+		<div class="y2">
+			<ul>
+				<li><a href="index.html">新歌</a></li>
+				<li><a href="#!/two">排行</a></li>
+				<li><a href="#!/three">歌单</a></li>
+				<li><a href="#!/si">歌手</a></li>
+			</ul>
+		</div>
+		<ui-view></ui-view>
+		<script>
+			var app=angular.module("app",["ui.router"]);
+			 app.config(function($stateProvider,$urlRouterProvider){
+			   $urlRouterProvider.otherwise('/')
+			 	  //点击那个 ，跳转进去那个页面
+			 	  $stateProvider
+			 	  .state({
+			 	  	 name:'one',
+			 	  	 url:"/",
+			 	  	 templateUrl:"zhuye.html",
+			 	  	 controller:function(){
+			 	  	 	var mySwiper = new Swiper ('.swiper-container', {
+			//				effect : 'cube',
+			//			 	cube: {
+			//				  slideShadows: true,
+			//				  shadow: true,
+			//				  shadowOffset: 1000,
+			//				  shadowScale: 0.6
+			//				},
+						    loop: true,
+						    autoplay:2000,
+						    pagination: '.swiper-pagination',
+						    paginationClickable :true,
+							autoplayDisableOnInteraction : false,
+							
+							}
+						)
+			 	  	 }
+			 	  })
+			 	  .state({
+			 	  	 name:'onj',
+			 	  	 url:"/two",
+			 	  	 templateUrl:"index2.html"
+			 	  })
+			 	  .state({
+			 	  	 name:'ons',
+			 	  	 url:"/three",
+			 	  	 templateUrl:"index3.html"
+			 	  })
+			 	  .state({
+			 	  	 name:'oni',
+			 	  	 url:"/si",
+			 	  	 templateUrl:"index4.html"
+			 	  })
+			 	  .state({
+			 	  	 name:'onw',
+			 	  	 url:"/wu",
+			 	  	 templateUrl:"index21.html"
+			 	  })
+			 	  .state({
+			 	  	 name:'onl',
+			 	  	 url:"/l",
+			 	  	 templateUrl:"dl.html"
+			 	  })
+			 })
+			
+			
+			
+		</script>
+	</body>
+</html>

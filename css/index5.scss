@@ -1,0 +1,35 @@
+$w:25;
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+}
+.twoa{
+    padding-top: 117/$w+rem;
+    width: 100%;
+    height: 100%;
+}
+.y2{
+//  display: none;
+}
+.w1{
+    width: 100%;
+    height: 180/$w+rem;
+    position: absolute;
+    top: 46/$w+rem;
+    left: 0;
+    img{
+        margin-top: -75/$w+rem;
+        width: 100%;
+        height: 225/$w+rem!important;
+    }
+    .w11{
+        font-size: 18/$w+rem;
+        color: white;
+        position: absolute;
+        top: 350/$w+rem;
+        left: 20/$w+rem;
+    }
+}

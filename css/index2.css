@@ -1,0 +1,15 @@
+* { margin: 0; padding: 0; }
+
+.eul { padding-top: 4.68rem; padding-left: 0.4rem; }
+.eul li { height: 4.8rem; border-bottom: 0.04rem solid #e5e5e5; list-style: none; }
+.eul li a { text-decoration: none; color: black; display: flex; padding: 0.4rem 0rem; position: relative; }
+.eul li a img { width: 4rem; height: 4rem; }
+.eul li a .ea1 { font-size: 0.72rem; margin-left: 0.8rem; line-height: 4rem; }
+.eul li a .ei2 { position: absolute; top: 40%; right: 0.8rem; width: 0.8rem; height: 0.8rem; }
+.eul li:last-of-type { height: 4.8rem; border-bottom: 0.04rem solid transparent; list-style: none; }
+.eul li:last-of-type a { text-decoration: none; color: black; display: flex; padding: 0.4rem 0rem; position: relative; }
+.eul li:last-of-type a img { width: 4rem; height: 4rem; }
+.eul li:last-of-type a .ea1 { font-size: 0.72rem; margin-left: 0.8rem; line-height: 4rem; }
+.eul li:last-of-type a .ei2 { position: absolute; top: 40%; right: 0.8rem; width: 0.8rem; height: 0.8rem; }
+
+/*# sourceMappingURL=index2.css.map */

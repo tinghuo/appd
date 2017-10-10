@@ -1,0 +1,85 @@
+	
+	<div class="page-container">
+		<div class="dl1">
+			<img src="img/wi2.png" class="dlimg" onclick="aaa()"/>
+			<div class="zc">登录</div>
+		</div>
+		<div class="zc1">
+		    <input type="text" name="name" id="username" />
+			<input type="password" name="password" id="password" />
+			<button id="btn">注册</button>
+			<button id="login">登录</button>
+		</div>
+	</div>
+		
+    
+    <script>
+			var btn = document.getElementById("btn");
+			var lg = document.getElementById("login");
+			var names =document.getElementById("username")
+			var psds =document.getElementById("password")
+			//   创建数据库
+			var data = openDatabase("stu","1.0","学生表","1024*1024");
+			//   创建表
+			data.transaction(function(ts){
+				ts.executeSql("create table users(user_id,user_name,user_password)",[],function(re,data){
+					//   执行成功
+					console.log("创建表成功");
+				},function(er,mes){
+					//   执行失败
+					console.log("创建失败");
+				});
+			});
+			btn.onclick = function(){      //    用户注册
+				var name =  document.getElementById("username").value;
+				var psd =  document.getElementById("password").value;
+				if(name!=""&&psd!=""){
+					data.transaction(function(ds){
+					ds.executeSql("select * from users where user_name=?",[name],function(re,data){
+					var data = data.rows.length;
+					if(data==0){
+						ds.executeSql("insert into users(user_name,user_password) values(?,?)",[name,psd],function(){
+						alert("注册成功");
+						});
+					}
+					else{
+						alert("该用户已存在！！");
+						names.value="";
+						psds.value="";
+					}
+					})
+				});
+				}else{
+					alert("请检查输入格式")
+				}
+			}
+			lg.onclick = function(){      //   用户登录的
+				var name =  document.getElementById("username").value;
+				var psd =  document.getElementById("password").value;
+				data.transaction(function(ds){
+					ds.executeSql("select * from users where user_name=?",[name],function(re,data){
+						var data = data.rows[0];
+						if(data){
+							var resPassword = data.user_password;
+							if(psd === resPassword){     //  登录成功了
+								alert("登录成功")
+								location.href="http://127.0.0.1:8020/yd%E9%A1%B9%E7%9B%AE/index.html#!/"
+							}else{
+								alert("登录失败");
+								names.value="";
+								psds.value="";
+							}
+						}else{
+							alert("该用户不存在");
+							names.value="";
+							psds.value="";
+						}
+					});
+				});
+			}
+			
+			
+			function aaa(){
+				location.href= history.back(-1)
+			}
+		</script>
